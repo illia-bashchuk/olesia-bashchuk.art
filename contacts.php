@@ -22,7 +22,7 @@ get_header();
 					
 					<!---->
 					<div id="contact_form">
-						<?= do_shortcode('[contact-form-7 id="20" title="contact-form"]'); ?>
+						<?= do_shortcode('[contact-form-7 id="5" title="contact-form"]'); ?>
 						
 					</div>
 				</div>
