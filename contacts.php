@@ -37,7 +37,7 @@ get_header();
 <!-- Google Map -->
 <script>
 	var marker;
-	var image = 'http://http://www.olesia-bashchuk.art/wp-content/themes/olesia-bashchuk.art/images/map-marker.png';
+	var image = 'http://www.olesia-bashchuk.art/wp-content/themes/olesia-bashchuk.art/images/map-marker.png';
 
 	function initMap() {
 		var myLatLng = {
