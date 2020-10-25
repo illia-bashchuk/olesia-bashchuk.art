@@ -6,6 +6,7 @@ get_header();
 ?>
 
 <!--////////////////////////////////////Container-->
+
 <section id="container">
 	<div class="wrap-container">
 		<!-----------------Content-Box-------------------->
@@ -36,12 +37,12 @@ get_header();
 <!-- Google Map -->
 <script>
 	var marker;
-	var image = 'images/map-marker.png';
+	var image = 'http://http://www.olesia-bashchuk.art/wp-content/themes/olesia-bashchuk.art/images/map-marker.png';
 
 	function initMap() {
 		var myLatLng = {
-			lat: 49.02,
-			lng: 28.06
+			lat: 49.04,
+			lng: 28.11
 		};
 
 		// Specify features and elements to define styles.
