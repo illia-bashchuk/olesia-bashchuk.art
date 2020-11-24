@@ -11,7 +11,7 @@ setup_postdata($post); ?>
 			<div class="wrap-post">
 				<!--Start Box-->
 				<div class="entry-header">
-					<span class="time"><?= the_date('F j, Y'); ?></span>
+					<span class="time"><?= the_date('d.m.Y'); ?></span>
 					<h1 class="entry-title"><?= esc_html(the_title()); ?></h1>
 					<span class="cat-links"><?= esc_html(the_category()); ?></span>
 				</div>

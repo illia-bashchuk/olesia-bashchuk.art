@@ -16,7 +16,7 @@ get_header(); ?>
                 <div class="row wrap-post">
                     <!--Start Box-->
                     <div class="entry-header">
-                        <span class="time"><?= the_date('F j, Y'); ?></span>
+                        <span class="time"><?= the_date('d.m.Y'); ?></span>
                         <h2 class="entry-title"><a href="<?= the_permalink(); ?>"><?= esc_html(the_title()); ?></a></h2>
                         <span class="cat-links"><?= esc_html(the_category()); ?></span>
                     </div>
@@ -25,7 +25,7 @@ get_header(); ?>
                     </div>
                     <div class="entry-content">
                         <?= esc_html(the_content()); ?>
-                        <a href="<?php the_permalink(); ?>">Read More</a>
+                        <a href="<?php the_permalink(); ?>"><?php _e('Read More','zpainting')?></a>
                     </div>
                 </div>
             </article>

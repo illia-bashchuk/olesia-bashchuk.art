@@ -36,6 +36,18 @@
                 <div id="top">
                     <div class="row">
                         <div class="col text-center">
+                        
+                            <a class="col" href="?lang=en">
+                                <img src="<?= plugins_url('qtranslate-xt/flags/25x15/gb.png'); ?>" alt="English">
+                            </a>
+                            <a class="col" href="?lang=ua">
+                                <img src="<?= plugins_url('qtranslate-xt/flags/25x15/ua.png'); ?>" alt="Ukraine">
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
                             <ul class="list-inline top-link link">
                                 <li><a href="https://www.facebook.com/olesia_bashchuk-100259038188213" target="_blank">Facebook</a></li>
                                 <li><a href="https://www.instagram.com/olesia_bashchuk_art/" target="_blank">Instagram</a></li>
@@ -47,9 +59,9 @@
                     </div>
                 </div>
                 <div class="t-center">
-                    <a class="site-branding" href="<?php echo home_url( '/' ) ?>">
-                        <!-- <img src="<?=D;?>images/logo_old.png" width="300px" /> -->
-                        Olesia  Bashchuk Art  Shop
+                    <a class="site-branding" href="<?php echo home_url('/') ?>">
+                        
+                        Olesia Bashchuk Art Blog
 
                     </a><!-- .site-branding -->
 
@@ -70,7 +82,7 @@
                         'link_after'      => '</span>',
                         'items_wrap'      => '<ul>%3$s</ul>',
                         'depth'           => 0,
-                        'walker'          => '',
+                        'walker'          => new True_Walker_Nav_Menu(),
                     ]); ?>
                 </div>
             </div>
