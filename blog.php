@@ -24,7 +24,7 @@ get_header(); ?>
                         <img src="<?=get_the_post_thumbnail_url( $post, 'large' );?>">
                     </div>
                     <div class="entry-content">
-                        <?= esc_html(the_content()); ?>
+                        <?= esc_html(the_excerpt()); ?>
                         <a href="<?php the_permalink(); ?>"><?php _e('Read More','zpainting')?></a>
                     </div>
                 </div>

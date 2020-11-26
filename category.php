@@ -29,7 +29,7 @@ get_header();
                     <div class="row wrap-post">
                         
                         <div class="entry-header">
-                            <span class="time"><?= the_date('F j, Y'); ?></span>
+                            <span class="time"><?= the_date('d.m.Y'); ?></span>
                             <h2 class="entry-title"><a href="<?= the_permalink(); ?>"><?= esc_html(the_title()) ?></a></h2>
                             <span class="cat-links"><?= esc_html(the_category()); ?></span>
                         </div>
@@ -37,8 +37,8 @@ get_header();
                             <img src="<?=get_the_post_thumbnail_url( $post, 'large' );?>">
                         </div>
                         <div class="entry-content">
-                            <?= esc_html(the_content()); ?>
-                            <a href="<?php the_permalink(); ?>">Read More</a>
+                            <?= esc_html(the_excerpt()); ?>
+                            <a href="<?php the_permalink(); ?>"><?+_e('Read More','zpainting') ?></a>
                         </div>
                     </div>
                 </article>
@@ -47,7 +47,7 @@ get_header();
                 <article>
                     <div class="row wrap-post">
                         <div class="entry-content">
-                        <?php echo __('No entries found for this category.'); ?>
+                        <?php echo __('No entries found for this category.','zpainting'); ?>
                         </div>
                     </div>
                 </article>
