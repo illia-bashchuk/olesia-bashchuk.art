@@ -10,8 +10,8 @@ get_header();
 <section id="container">
 	<div class="wrap-container">
 		<!-----------------Content-Box-------------------->
-		<section class="content-box zerogrid">
-			<div class=" wrap-box">
+		<section class="single-post zerogrid">
+			<div class="wrap-post">
 				<!--Start Box-->
 
 				<!--Start Map-->

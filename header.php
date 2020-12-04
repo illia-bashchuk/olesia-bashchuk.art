@@ -36,14 +36,14 @@
                 <div id="top">
                     <div class="row">
                         <div class="col text-center">
-                        
+
                             <a class="col" href="?lang=en">
                                 <img src="<?= plugins_url('qtranslate-xt/flags/25x15/gb.png'); ?>" alt="English">
                             </a>
                             <a class="col" href="?lang=ua">
                                 <img src="<?= plugins_url('qtranslate-xt/flags/25x15/ua.png'); ?>" alt="Ukraine">
                             </a>
-                            
+
                         </div>
                     </div>
                     <div class="row">
@@ -60,30 +60,36 @@
                 </div>
                 <div class="t-center">
                     <a class="site-branding" href="<?php echo home_url('/') ?>">
-                        
-                        Olesia Bashchuk Art Blog
+
+                    <?= _e('Olesia Bashchuk Art Blog','zpainting') ?>
 
                     </a><!-- .site-branding -->
 
                     <!-- Menu-main -->
-                    <?php wp_nav_menu([
-                        'theme_location' => 'main_menu',
-                        'menu'            => '',
-                        'container'       => 'div',
-                        'container_class' => 'align-center',
-                        'container_id'    => 'cssmenu',
-                        'menu_class'      => false,
-                        'menu_id'         => false,
-                        'echo'            => true,
-                        'fallback_cb'     => 'wp_page_menu',
-                        'before'          => '',
-                        'after'           => '',
-                        'link_before'     => '<span>',
-                        'link_after'      => '</span>',
-                        'items_wrap'      => '<ul>%3$s</ul>',
-                        'depth'           => 0,
-                        'walker'          => new True_Walker_Nav_Menu(),
-                    ]); ?>
+
                 </div>
             </div>
+            
+
+
         </header>
+        
+                <?php wp_nav_menu([
+                    'theme_location' => 'main_menu',
+                    'menu'            => '',
+                    'container'       => 'div',
+                    'container_class' => 'align-center',
+                    'container_id'    => 'cssmenu',
+                    'menu_class'      => false,
+                    'menu_id'         => false,
+                    'echo'            => true,
+                    'fallback_cb'     => 'wp_page_menu',
+                    'before'          => '',
+                    'after'           => '',
+                    'link_before'     => '<span>',
+                    'link_after'      => '</span>',
+                    'items_wrap'      => '<ul>%3$s</ul>',
+                    'depth'           => 0,
+                    'walker'          => new True_Walker_Nav_Menu(),
+                ]); ?>
+            
