@@ -13,7 +13,7 @@ setup_postdata($post); ?>
 				<div class="entry-header">
 					<span class="time"><?= the_date('d.m.Y'); ?></span>
 					<h1 class="entry-title"><?= esc_html(the_title()); ?></h1>
-					<span class="cat-links"><?= esc_html(the_category()); ?></span>
+					<span class="cat-links"><?= esc_html(the_category(', ')); ?></span>
 				</div>
 				<div class="post-thumbnail-wrap">
 					<img src="<?= get_the_post_thumbnail_url($post, 'large'); ?>">
