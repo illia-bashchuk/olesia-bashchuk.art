@@ -3,7 +3,7 @@
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="en">
+<html <?php language_attributes(); ?>>
 <!--<![endif]-->
 
 <head>
@@ -11,18 +11,18 @@
     <!-- Basic Page Needs
   ================================================== -->
     <meta charset="utf-8">
-    <title><?= wp_get_document_title(); ?></title>
-    <meta name="description" content="">
-    <meta name="author" content="https://www.zerotheme.com">
+    <!-- <title><?= wp_get_document_title(); ?></title>
+    <meta name="description" content="123">
+    <meta name="author" content=""> -->
 
     <!-- Mobile Specific Metas
 	================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- BootstrapCDN
 	================================================== -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
 
-    <script src="https://use.fontawesome.com/37749dd860.js"></script>
+    <!-- <script src="https://use.fontawesome.com/37749dd860.js"></script> -->
 
     <?php wp_head(); ?>
 </head>
@@ -38,10 +38,10 @@
                         <div class="col text-center">
 
                             <a class="col" href="?lang=en">
-                                <img src="<?= plugins_url('qtranslate-xt/flags/25x15/gb.png'); ?>" alt="English">
+                                <img src="<?= plugins_url('qtranslate-xt/flags/25x15/gb.png'); ?>" width="25" height="15" alt="English">
                             </a>
                             <a class="col" href="?lang=ua">
-                                <img src="<?= plugins_url('qtranslate-xt/flags/25x15/ua.png'); ?>" alt="Ukraine">
+                                <img src="<?= plugins_url('qtranslate-xt/flags/25x15/ua.png'); ?>" width="25" height="15" alt="Ukraine">
                             </a>
 
                         </div>
@@ -61,35 +61,34 @@
                 <div class="t-center">
                     <a class="site-branding" href="<?php echo home_url('/') ?>">
 
-                    <?= _e('Olesia Bashchuk Art Blog','zpainting') ?>
+                        <?= _e('Olesia Bashchuk Art Blog', 'zpainting') ?>
 
                     </a><!-- .site-branding -->
 
-                    <!-- Menu-main -->
+
 
                 </div>
             </div>
-            
+
 
 
         </header>
-        
-                <?php wp_nav_menu([
-                    'theme_location' => 'main_menu',
-                    'menu'            => '',
-                    'container'       => 'div',
-                    'container_class' => 'align-center',
-                    'container_id'    => 'cssmenu',
-                    'menu_class'      => false,
-                    'menu_id'         => false,
-                    'echo'            => true,
-                    'fallback_cb'     => 'wp_page_menu',
-                    'before'          => '',
-                    'after'           => '',
-                    'link_before'     => '<span>',
-                    'link_after'      => '</span>',
-                    'items_wrap'      => '<ul>%3$s</ul>',
-                    'depth'           => 0,
-                    'walker'          => new True_Walker_Nav_Menu(),
-                ]); ?>
-            
+        <!-- Menu-main -->
+        <?php wp_nav_menu([
+            'theme_location' => 'main_menu',
+            'menu'            => '',
+            'container'       => 'div',
+            'container_class' => 'align-center',
+            'container_id'    => 'cssmenu',
+            'menu_class'      => false,
+            'menu_id'         => false,
+            'echo'            => true,
+            'fallback_cb'     => 'wp_page_menu',
+            'before'          => '',
+            'after'           => '',
+            'link_before'     => '<span>',
+            'link_after'      => '</span>',
+            'items_wrap'      => '<ul>%3$s</ul>',
+            'depth'           => 0,
+            'walker'          => new True_Walker_Nav_Menu(),
+        ]); ?>
