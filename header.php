@@ -20,10 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- BootstrapCDN
 	================================================== -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
-
-    <!-- <script src="https://use.fontawesome.com/37749dd860.js"></script> -->
-
+    
     <?php wp_head(); ?>
 </head>
 
@@ -37,10 +34,10 @@
                     <div class="row">
                         <div class="col t-center">
 
-                            <a class="col" href="?lang=en">
+                            <a class="wrap-col" href="?lang=en">
                                 <img src="<?= plugins_url('qtranslate-xt/flags/25x15/gb.png'); ?>" width="25" height="15" alt="English">
                             </a>
-                            <a class="col" href="?lang=ua">
+                            <a class="wrap-col" href="?lang=ua">
                                 <img src="<?= plugins_url('qtranslate-xt/flags/25x15/ua.png'); ?>" width="25" height="15" alt="Ukraine">
                             </a>
 
