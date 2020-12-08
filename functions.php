@@ -24,7 +24,7 @@ function enqueue_zPainting_style()
      *   JS scripts
      *   ================================================== 
      */
-	wp_deregister_script('jquery');
+	
     wp_enqueue_script('my-script', get_template_directory_uri() . '/js/script.js', array(), '1.0.0', true);
     wp_enqueue_script('unitegallery_js', get_template_directory_uri() . '/unitegallery/js/unitegallery.min.js', array(), '1.0.0', true);
     wp_enqueue_script('unitegallery_theme_js', get_template_directory_uri() . '/unitegallery/themes/tiles/ug-theme-tiles.js', array(), '1.0.0', true);
