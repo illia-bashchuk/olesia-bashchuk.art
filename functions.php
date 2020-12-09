@@ -129,7 +129,7 @@ function add_menus()
 
 // параметры по умолчанию
 $myposts = get_posts( array(
-	'numberposts' => 5,
+	'numberposts' => -1,
 	'category'    => 0,
 	'orderby'     => 'date',
 	'order'       => 'DESC',
@@ -138,5 +138,6 @@ $myposts = get_posts( array(
 	'meta_key'    => '',
 	'meta_value'  =>'',
 	'post_type'   => 'post',
+	'nopaging'    => true,
 	'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
 ) );
