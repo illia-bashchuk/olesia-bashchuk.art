@@ -1,10 +1,12 @@
 <?php
+add_filter('show_admin_bar', '__return_false'); // отключить
 add_action('wp_enqueue_scripts', 'enqueue_zPainting_style');
 add_action('after_setup_theme', 'add_menus');
 add_action('after_setup_theme', function(){
 	load_theme_textdomain( 'zpainting', get_template_directory() . '/languages' );
 });
 add_theme_support( 'post-thumbnails' );
+remove_action('wp_head','qtranxf_wp_head_meta_generator');
 define('D', get_template_directory_uri().'/');
 function enqueue_zPainting_style()
 {
@@ -141,3 +143,38 @@ $myposts = get_posts( array(
 	'nopaging'    => true,
 	'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
 ) );
+
+function my_category_posts($my_category) {
+    $my_category_posts = get_posts( array(
+        'numberposts' => -1,
+        'category_name'    => $my_category,
+        'orderby'     => 'date',
+        'order'       => 'DESC',
+        'include'     => array(),
+        'exclude'     => array(),
+        'meta_key'    => '',
+        'meta_value'  =>'',
+        'post_type'   => 'post',
+        'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+    ) );
+    return $my_category_posts;
+}
+
+// Удаляем лишнее с head части сайта
+// 2.0
+remove_action( 'wp_head', 'feed_links_extra', 3 ); // ссылки доп. фидов (на рубрики)
+remove_action( 'wp_head', 'feed_links',       2 ); // ссылки фидов (основные фиды)
+// <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://example.com/xmlrpc.php?rsd" /> для публикации статей через сторонние сервисы
+remove_action( 'wp_head', 'rsd_link'            ); 
+// <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://example.com/wp-includes/wlwmanifest.xml" /> . Используется клиентом Windows Live Writer. 
+remove_action( 'wp_head', 'wlwmanifest_link'    ); 
+remove_action( 'wp_head', 'index_rel_link'      ); // не поддерживается с версии 3.3
+
+add_filter('the_generator', '__return_empty_string'); // Убираем версию WordPress
+
+// 3.0
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 ); // Ссылки на соседние статьи (<link rel='next'... <link rel='prev'...)
+remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );// Короткая ссылка - без ЧПУ <link rel='shortlink'
+
+// 4.6
+remove_action( 'wp_head', 'wp_resource_hints', 2); // Prints resource hints to browsers for pre-fetching, pre-rendering and pre-connecting to web sites.
