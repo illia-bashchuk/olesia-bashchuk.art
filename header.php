@@ -11,16 +11,10 @@
     <!-- Basic Page Needs
   ================================================== -->
     <meta charset="utf-8">
-    <!-- <title><?= wp_get_document_title(); ?></title>
-    <meta name="description" content="123">
-    <meta name="author" content=""> -->
-
     <!-- Mobile Specific Metas
-	================================================== -->
+  ================================================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <!-- BootstrapCDN
-	================================================== -->
-    
+    <title><?= wp_get_document_title(); ?></title>
     <?php wp_head(); ?>
 </head>
 
@@ -61,14 +55,8 @@
                         <?= _e('Olesia Bashchuk Art Blog', 'zpainting') ?>
 
                     </a><!-- .site-branding -->
-
-
-
                 </div>
             </div>
-
-
-
         </header>
         <!-- Menu-main -->
         <?php wp_nav_menu([
