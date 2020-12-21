@@ -2,7 +2,17 @@
 /*
 Template Name: Contacts
 */
+
+//Load the css and js files on pages which contain contact forms 7
+if (function_exists('wpcf7_enqueue_scripts')) {
+	wpcf7_enqueue_scripts();
+}
+
+if (function_exists('wpcf7_enqueue_styles')) {
+	wpcf7_enqueue_styles();
+}
 get_header();
+
 ?>
 
 <!--////////////////////////////////////Container-->
@@ -19,12 +29,18 @@ get_header();
 				<!--End Map-->
 
 				<div class="contact-form">
-					<h3 class="t-center">Contact Form</h3>
-					
+					<h3 class="t-center"><?= _e('Write to me', 'zpainting') ?></h3>
+
 					<!---->
 					<div id="contact_form">
-						<?= do_shortcode('[contact-form-7 id="5" title="contact-form"]'); ?>
-						
+						<?php
+						// Change the translation according to the locale for contact form
+						if (get_locale() == 'uk') {
+							echo do_shortcode('[contact-form-7 id="261" title="contact-form_uk"]'); // needs change on production server
+						} else {
+							echo do_shortcode('[contact-form-7 id="5" title="contact-form"]'); // needs change on production server
+						}
+						?>
 					</div>
 				</div>
 			</div>
