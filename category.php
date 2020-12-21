@@ -34,7 +34,7 @@ get_header();
                             <span class="cat-links"><?= esc_html(the_category(', ')); ?></span>
                         </div>
                         <div class="post-thumbnail-wrap">
-                            <img src="<?=get_the_post_thumbnail_url( $post, 'large' );?>">
+                        <?= get_the_post_thumbnail($post, array(724, 724)); ?>
                         </div>
                         <div class="entry-content">
                             <?= esc_html(the_excerpt()); ?>

@@ -16,7 +16,7 @@ setup_postdata($post); ?>
 					<span class="cat-links"><?= esc_html(the_category(', ')); ?></span>
 				</div>
 				<div class="post-thumbnail-wrap">
-					<img src="<?= get_the_post_thumbnail_url($post, 'large'); ?>">
+					<?= get_the_post_thumbnail($post, array(724, 724)); ?>
 				</div>
 				<div class="entry-content">
 					<?= esc_html(the_content()); ?>
@@ -25,14 +25,14 @@ setup_postdata($post); ?>
 		</article>
 
 
-		<div class="zerogrid">
+		<!-- <div class="zerogrid">
 			<div class="comments-are">
 				<div class="container">
 					<?php $comments = comments_template();
 					?>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </section>
 <?php get_footer(); ?>
