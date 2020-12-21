@@ -1,5 +1,5 @@
 <?php
-add_filter('show_admin_bar', '__return_false'); // отключить
+add_filter('show_admin_bar', '__return_false'); // отключить админ бар
 add_action('wp_enqueue_scripts', 'enqueue_zPainting_style');
 add_action('after_setup_theme', 'add_menus');
 add_action('after_setup_theme', function(){
@@ -21,7 +21,7 @@ function enqueue_zPainting_style()
      *   Custom Fonts
      *   ================================================== 
      */
-    wp_enqueue_style('font-awesome', get_stylesheet_directory_uri() . '/font-awesome-4.7.0/css/font-awesome.min.css');
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
     /**
      *   JS scripts
      *   ================================================== 
@@ -32,96 +32,9 @@ function enqueue_zPainting_style()
     wp_enqueue_script('unitegallery_theme_js', get_template_directory_uri() . '/unitegallery/themes/tiles/ug-theme-tiles.js', array(), '1.0.0', true);
 }
 
-class True_Walker_Nav_Menu extends Walker_Nav_Menu {
-	/*
-	 * Позволяет перезаписать <ul class="sub-menu">
-	 */
-	// function start_lvl(&$output, $depth) {
-	// для WordPress 5.3+
-	function start_lvl( &$output, $depth = 0, $args = NULL ) {
-		/*
-		 * $depth – уровень вложенности, например 2,3 и т д
-		 */ 
-		$output .= '<ul class="menu_sublist">';
-	}
-	/**
-	 * @see Walker::start_el()
-	 * @since 3.0.0
-	 *
-	 * @param string $output
-	 * @param object $item Объект элемента меню, подробнее ниже.
-	 * @param int $depth Уровень вложенности элемента меню.
-	 * @param object $args Параметры функции wp_nav_menu
-	 */
-	// function start_el( &$output, $item, $depth, $args ) {
-	// для WordPress 5.3+
-	function start_el( &$output, $item, $depth = 0, $args = NULL, $id = 0 ) {
-		global $wp_query;           
-		/*
-		 * Некоторые из параметров объекта $item
-		 * ID - ID самого элемента меню, а не объекта на который он ссылается
-		 * menu_item_parent - ID родительского элемента меню
-		 * classes - массив классов элемента меню
-		 * post_date - дата добавления
-		 * post_modified - дата последнего изменения
-		 * post_author - ID пользователя, добавившего этот элемент меню
-		 * title - заголовок элемента меню
-		 * url - ссылка
-		 * attr_title - HTML-атрибут title ссылки
-		 * xfn - атрибут rel
-		 * target - атрибут target
-		 * current - равен 1, если является текущим элементом
-		 * current_item_ancestor - равен 1, если текущим (открытым на сайте) является вложенный элемент данного
-		 * current_item_parent - равен 1, если текущим (открытым на сайте) является родительский элемент данного
-		 * menu_order - порядок в меню
-		 * object_id - ID объекта меню
-		 * type - тип объекта меню (таксономия, пост, произвольно)
-		 * object - какая это таксономия / какой тип поста (page /category / post_tag и т д)
-		 * type_label - название данного типа с локализацией (Рубрика, Страница)
-		 * post_parent - ID родительского поста / категории
-		 * post_title - заголовок, который был у поста, когда он был добавлен в меню
-		 * post_name - ярлык, который был у поста при его добавлении в меню
-		 */
-		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
- 
-		/*
-		 * Генерируем строку с CSS-классами элемента меню
-		 */
-		$class_names = $value = '';
-		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-		$classes[] = 'menu-item-' . $item->ID;
- 
-		// функция join превращает массив в строку
-		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
-		$class_names = ' class="' . esc_attr( $class_names ) . '"';
- 
-		/*
-		 * Генерируем ID элемента
-		 */
-		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
-		$id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
- 
-		/*
-		 * Генерируем элемент меню
-		 */
-		$output .= $indent . '<li' . $id . $value . $class_names .'>';
- 
-		// атрибуты элемента, title="", rel="", target="" и href=""
-		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-		$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-		$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
- 
-		// ссылка и околоссылочный текст
-		$item_output = $args->before;
-		$item_output .= '<a'. $attributes .'>';
-		$item_output .= $args->link_before . __(apply_filters( 'the_title', $item->title, $item->ID ),'zpainting') . $args->link_after;
-		$item_output .= '</a>';
-		$item_output .= $args->after;
- 
- 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-	}
-}
+// Main menu Walker class.
+require get_template_directory() . '/classes/class-zpainting-mein-menu-wolker.php';
+
 
 function add_menus()
 {
@@ -168,7 +81,7 @@ remove_action( 'wp_head', 'feed_links',       2 ); // ссылки фидов (�
 remove_action( 'wp_head', 'rsd_link'            ); 
 // <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://example.com/wp-includes/wlwmanifest.xml" /> . Используется клиентом Windows Live Writer. 
 remove_action( 'wp_head', 'wlwmanifest_link'    ); 
-remove_action( 'wp_head', 'index_rel_link'      ); // не поддерживается с версии 3.3
+// remove_action( 'wp_head', 'index_rel_link'      ); // не поддерживается с версии 3.3
 
 add_filter('the_generator', '__return_empty_string'); // Убираем версию WordPress
 
@@ -178,3 +91,68 @@ remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );// Короткая сс�
 
 // 4.6
 remove_action( 'wp_head', 'wp_resource_hints', 2); // Prints resource hints to browsers for pre-fetching, pre-rendering and pre-connecting to web sites.
+remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+
+function disable_emoji_feature() {
+	
+	// Prevent Emoji from loading on the front-end
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+	// Remove from admin area also
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
+	// Remove from RSS feeds also
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji');
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji');
+
+	// Remove from Embeds
+	remove_filter( 'embed_head', 'print_emoji_detection_script' );
+
+	// Remove from emails
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+
+	// Disable from TinyMCE editor. Currently disabled in block editor by default
+	add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
+
+	/** Finally, prevent character conversion too
+         ** without this, emojis still work 
+         ** if it is available on the user's device
+	 */
+
+	// add_filter( 'option_use_smilies', '__return_false' );
+
+}
+
+function disable_emojis_tinymce( $plugins ) {
+	if( is_array($plugins) ) {
+		$plugins = array_diff( $plugins, array( 'wpemoji' ) );
+	}
+	return $plugins;
+}
+
+add_action('init', 'disable_emoji_feature');
+
+
+// отключение ненужных теме стилей и скриптов begin
+function my_deregister_styles_and_scripts() {
+	wp_dequeue_style('wp-block-library');
+	wp_dequeue_style( 'wp-block-library-theme' );
+}
+add_action( 'wp_print_styles', 'my_deregister_styles_and_scripts', 100 );
+// отключение ненужных теме стилей и скриптов end
+
+// Disable REST API link tag
+remove_action('wp_head', 'rest_output_link_wp_head', 10);
+
+// Disable oEmbed Discovery Links
+remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
+
+// Disable REST API link in HTTP headers
+remove_action('template_redirect', 'rest_output_link_header', 11, 0);
+
+// Stop loading the JavaScript and CSS stylesheet on all pages
+add_filter( 'wpcf7_load_js', '__return_false' );
+add_filter( 'wpcf7_load_css', '__return_false' );
