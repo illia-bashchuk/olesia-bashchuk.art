@@ -149,6 +149,7 @@ function my_deregister_styles_and_scripts()
 {
 	wp_dequeue_style('wp-block-library');
 	wp_dequeue_style('wp-block-library-theme');
+	wp_deregister_style( 'aioseop-toolbar-menu' );
 }
 add_action('wp_print_styles', 'my_deregister_styles_and_scripts', 100);
 // отключение ненужных теме стилей и скриптов end
