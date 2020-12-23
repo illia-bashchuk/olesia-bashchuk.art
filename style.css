@@ -1772,3 +1772,6 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
 .children li {
 	margin-left: 10px;
 }
+
+/* to hide the reCAPTCHA badge. */
+.grecaptcha-badge { visibility: hidden; }
