@@ -12,23 +12,25 @@ get_header(); ?>
             foreach ($myposts as $post) :
                 setup_postdata($post);
             ?>
-            <article>
-                <div class="row wrap-post">
-                    <!--Start Box-->
-                    <div class="entry-header">
-                        <span class="time"><?= the_date('d.m.Y'); ?></span>
-                        <h2 class="entry-title"><a href="<?= the_permalink(); ?>"><?= esc_html(the_title()); ?></a></h2>
-                        <span class="cat-links"><?= esc_html(the_category(', ')); ?></span>
+                <article>
+                    <div class="row wrap-post">
+                        <!--Start Box-->
+                        <div class="entry-header">
+                            <span class="time"><?= the_date('d.m.Y'); ?></span>
+                            <h2 class="entry-title"><a href="<?= the_permalink(); ?>"><?= esc_html(the_title()); ?></a></h2>
+                            <span class="cat-links"><?= esc_html(the_category(', ')); ?></span>
+                        </div>
+                        <div class="post-thumbnail-wrap">
+                            <a href="<?php the_permalink(); ?>">
+                                <?= get_the_post_thumbnail($post, array(724, 724)); ?>
+                            </a>
+                        </div>
+                        <div class="entry-content">
+                            <?= esc_html(the_excerpt()); ?>
+                            <a href="<?php the_permalink(); ?>"><?php _e('Read More', 'zpainting') ?></a>
+                        </div>
                     </div>
-                    <div class="post-thumbnail-wrap">
-                    <?= get_the_post_thumbnail($post, array(724, 724)); ?>
-                    </div>
-                    <div class="entry-content">
-                        <?= esc_html(the_excerpt()); ?>
-                        <a href="<?php the_permalink(); ?>"><?php _e('Read More','zpainting')?></a>
-                    </div>
-                </div>
-            </article>
+                </article>
             <?php endforeach;
             wp_reset_postdata(); ?>
         </div>
