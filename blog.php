@@ -22,7 +22,7 @@ get_header(); ?>
                         </div>
                         <div class="post-thumbnail-wrap">
                             <a href="<?php the_permalink(); ?>">
-                                <?= get_the_post_thumbnail($post, array(724, 724)); ?>
+                                <?= get_the_post_thumbnail($post, 'medium_large'); ?>
                             </a>
                         </div>
                         <div class="entry-content">

@@ -32,10 +32,10 @@ get_header();
                                 foreach ($myposts as $post) :
                                     setup_postdata($post);
                                 ?>
-                                <a href="<?php the_permalink(); ?>">
-                                    <img alt="<?= the_title() ?>" src="<?= get_the_post_thumbnail_url($post, 'medium'); ?>" data-image="<?= get_the_post_thumbnail_url($post, 'large'); ?>" data-description="<?= the_title() ?>">
-                                </a>
-                                    
+                                    <a href="<?php the_permalink(); ?>">
+                                        <img alt="<?= the_title() ?>" src="<?= get_the_post_thumbnail_url($post, 'medium'); ?>" data-description="<?= the_title() ?>">
+                                    </a>
+
                                 <?php endforeach;
                                 wp_reset_postdata(); ?>
                             </div>
@@ -49,17 +49,14 @@ get_header();
 
 <script type="text/javascript">
     jQuery(document).ready(function() {
-        jQuery("#gallery").unitegallery(
-            {
-                tiles_type:"nested",
-                tiles_space_between_cols: 10,
-                tile_as_link: true,
-                tile_link_newpage: false,
-                tile_enable_textpanel: true,
-                tile_enable_border: true,
-
-			}
-        );
+        jQuery("#gallery").unitegallery({
+            tiles_type: "nested",
+            tiles_space_between_cols: 10,
+            tile_as_link: true,
+            tile_link_newpage: false,
+            tile_enable_textpanel: true,
+            tile_enable_border: true,
+        });
 
     });
 </script>
