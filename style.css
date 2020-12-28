@@ -1773,5 +1773,13 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
 	margin-left: 10px;
 }
 
-/* to hide the reCAPTCHA badge. */
+/* hide the reCAPTCHA badge. */
 .grecaptcha-badge { visibility: hidden; }
+
+/* align post picture */
+.aligncenter {
+	display: block;
+	margin-left: auto !important;
+    margin-right: auto !important;
+	
+}
