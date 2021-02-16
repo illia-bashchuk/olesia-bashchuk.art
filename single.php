@@ -25,14 +25,6 @@ setup_postdata($post); ?>
 		</article>
 
 
-		<!-- <div class="zerogrid">
-			<div class="comments-are">
-				<div class="container">
-					<?php $comments = comments_template();
-					?>
-				</div>
-			</div>
-		</div> -->
 	</div>
 </section>
 <?php get_footer(); ?>
