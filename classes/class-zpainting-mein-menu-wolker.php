@@ -88,5 +88,6 @@ class True_Walker_Nav_Menu extends Walker_Nav_Menu {
 		$item_output .= $args->after;
  
  		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+		 
 	}
 }
