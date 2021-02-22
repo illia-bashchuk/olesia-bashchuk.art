@@ -228,7 +228,7 @@ img {
 
 a {
 	color: #888;
-	text-decoration: none;
+	text-decoration: underline;
 	-webkit-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
@@ -1782,4 +1782,17 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
 	margin-left: auto !important;
     margin-right: auto !important;
 	
+}
+
+.entry-content a {
+	
+	color: #f1641e;
+	text-decoration: none;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+.entry-content a:hover {
+	text-decoration: underline;
 }
