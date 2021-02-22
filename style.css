@@ -1784,7 +1784,7 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
 	
 }
 
-.entry-content a {
+.entry-content p a {
 	
 	color: #f1641e;
 	text-decoration: none;
@@ -1793,6 +1793,6 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
 	transition: all .2s ease-in-out;
 }
 
-.entry-content a:hover {
+.entry-content p a:hover {
 	text-decoration: underline;
 }
