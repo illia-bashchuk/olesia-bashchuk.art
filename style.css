@@ -1581,9 +1581,11 @@ only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
 	#cssmenu {
 		background: #fff;
 		width: 100%;
-
 		position: sticky;
 		top: 0;
+		max-height: 100vh;
+		overflow: auto;
+	   -webkit-overflow-scrolling: touch;
 
 	}
 
