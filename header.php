@@ -42,9 +42,9 @@
                     <div class="row">
                         <div class="col t-center">
                             <ul class="list-inline top-link link">
-                                <li><a href="https://www.facebook.com/olesia_bashchuk-100259038188213" target="_blank">Facebook</a></li>
+                                <!-- <li><a href="https://www.facebook.com/olesia_bashchuk-100259038188213" target="_blank">Facebook</a></li> -->
                                 <li><a href="https://www.instagram.com/olesia_bashchuk_art/" target="_blank">Instagram</a></li>
-                                <li><a href="https://www.pinterest.com/obashchuk/my-etsy-shop/" target="_blank">Pinterest</a></li>
+                                <!-- <li><a href="https://www.pinterest.com/obashchuk/my-etsy-shop/" target="_blank">Pinterest</a></li> -->
                                 <li><a href="https://www.etsy.com/shop/OlesiaBashchukArt" target="_blank">Etsy</a></li>
                             </ul>
                         </div>
