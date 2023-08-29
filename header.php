@@ -54,7 +54,7 @@
                 <div class="t-center">
                     <a class="site-branding" href="<?php echo home_url('/') ?>">
 
-                        <?= _e('Olesia Bashchuk Art Blog', 'zpainting') ?>
+                        <?= _e('Sarah Bashchuk Art Blog', 'zpainting') ?>
 
                     </a><!-- .site-branding -->
                 </div>
